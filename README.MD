@@ -26,4 +26,29 @@ Run
 
     vagrant ssh
     
-and then [Install Blackfire](https://blackfire.io/docs/up-and-running/installation)    
+and then [Install Blackfire](https://blackfire.io/docs/up-and-running/installation) 
+   
+### Email service
+The following applications will be installed during in the build. No manual work is needed.
+
+See [here](http://rianjs.net/2013/08/send-email-from-linux-server-using-gmail-and-ubuntu-two-factor-authentication)
+Install mailutils
+
+    sudo apt-get install mailutils
+    
+Install and configure ssmtp
+    
+    sudo apt-get install ssmtp
+
+See [Mailhog](https://github.com/mailhog/MailHog)
+      
+    docker build -t mailhog .
+    docker run -d -p 1025:1025 -p 8025:8025 mailhog
+      
+Access Mailhog web page:
+
+    http://192.168.100.100:8025
+    
+    
+      
+      

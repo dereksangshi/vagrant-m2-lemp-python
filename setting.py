@@ -56,6 +56,13 @@ conf.update({
                     cd('conf/mysql56/conf.d'): '/etc/mysql/conf.d'
                 }
             }
+        },
+        'ssmtp': {
+            'conf': {
+                'mappings': {
+                    cd('conf/ssmtp'): '/etc/ssmtp'
+                }
+            }
         }
     }
 })

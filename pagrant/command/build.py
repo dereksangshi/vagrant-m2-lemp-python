@@ -45,13 +45,23 @@ class Build(Command):
         # print(env_vars)
         req_manager = RequirementManager()
         req_manager.require_once('conf.env_vars', env_vars=env_vars, env_file=env_file)
+        # Nginx
         req_manager.require_once('app.nginx')
         req_manager.require_once('conf.nginx', conf=Setting.conf.get('build.nginx.conf'))
+        # PHP 5.6
         req_manager.require_once('app.php56', conf=Setting.conf.get('build.php56.app'))
         req_manager.require_once('conf.php56', conf=Setting.conf.get('build.php56.conf'))
+        # MySQL 5.6
         req_manager.require_once('app.mysql56', conf=Setting.conf.get('build.mysql56.app'))
         req_manager.require_once('conf.mysql56', conf=Setting.conf.get('build.mysql56.conf'))
+        # SSMTP
+        req_manager.require_once('app.ssmtp')
+        req_manager.require_once('conf.ssmtp', conf=Setting.conf.get('build.ssmtp.conf'))
+        # Docker
+        req_manager.require_once('app.docker')
+        # Composer
         req_manager.require_once('app.composer')
+        # Alias pagrant
         FileHelper.write_excl('/root/.bash_aliases', ["alias pagrant='python /vagrant/pagrant/bin/console.py'"], force=True)
 
 

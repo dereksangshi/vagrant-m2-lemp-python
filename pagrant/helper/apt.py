@@ -48,6 +48,18 @@ class Apt:
             CommandHelper.run(['apt-get', '-y', 'remove', p])
 
     @staticmethod
+    def purge(package):
+        """
+        Remove package(s).
+        :param package: The package(s) to purge. List or string.
+        :return:
+        """
+        # Install the package(s)
+        package = package if isinstance(package, list) else [package]
+        for p in package:
+            CommandHelper.run(['apt-get', 'purge', p])
+
+    @staticmethod
     def add_repo(repo):
         """
         Add repository
