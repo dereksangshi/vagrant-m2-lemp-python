@@ -50,7 +50,7 @@ conf.update({
     'logging': {
         'format': '[%(asctime)s] <%(levelname)s> %(message)s',
         'datefmt': '%Y/%m/%d %I:%M:%S',
-        'filename': System.dir('/var/pagrant.log'),
+        'filename': System.dir('var/pagrant.log'),
         'level': logging.DEBUG
     }
 })
